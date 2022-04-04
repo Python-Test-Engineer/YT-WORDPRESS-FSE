@@ -1,15 +1,32 @@
 wp.blocks.registerBlockType("ourblocktheme/banner", {
-  title: "FSE Banner",
+  title: "Banner",
   icon:{
-    "src":"smiley",
-    "background": "#f15025",
+    "src":"admin-settings",
+    "background": "#2196f3",
     "foreground": "#fff"
   },
   category: "text",
-  edit: function () {
-    return wp.element.createElement("div", { className: "our-placeholder-block" }, "FSE Banner Placeholder")
+  attributes: {
+    valueOne: {type: "string"},
+    valueTwo: {type: "string"}
   },
-  save: function () {
+  edit: function (props) {
+    function updateValueOne(event) {
+      props.setAttributes({valueOne: event.target.value})
+    }
+
+    function updateValueTwo(event) {
+      props.setAttributes({valueTwo: event.target.value})
+    }
+
+    return (
+      <div>
+        <input type="text" placeholder="valueOne" value={props.attributes.valueOne} onChange={updateValueOne} />
+        <input type="text" placeholder="valueTwo" value={props.attributes.valueTwo} onChange={updateValueTwo} />
+      </div>
+    )
+  },
+  save: function (props) {
     return null
   }
 })

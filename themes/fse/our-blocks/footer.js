@@ -1,8 +1,8 @@
 wp.blocks.registerBlockType("ourblocktheme/footer", {
   title: "FSE Footer",
   icon:{
-    "src":"smiley",
-    "background": "#f15025",
+    "src":"media-code",
+    "background": "#006400",
     "foreground": "#fff"
   },
   edit: function () {

@@ -1,7 +1,7 @@
 wp.blocks.registerBlockType("ourblocktheme/header", {
   title: "FSE Header",
   icon:{
-    "src":"smiley",
+    "src":"admin-tools",
     "background": "#f15025",
     "foreground": "#fff"
   },
