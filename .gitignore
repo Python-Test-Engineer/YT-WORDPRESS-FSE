@@ -1,4 +1,5 @@
-plugins/all-in-one-wp-migration
+plugins/all-in-one-wp-migration/
+plugins/first-block/node_modules/
 themes/hansen/
 themes/twentytwenty/
 themes/twentytwentytwo/

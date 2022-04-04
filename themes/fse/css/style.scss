@@ -2,6 +2,20 @@
 /* SASS and Global'ish Stuff */
 @import "base/variables";
 
+body {
+    background: #ccc;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+a {
+    color: #2196f3;
+    text-decoration: none;
+}
+a:hover {
+    color: #f15025;
+   
+}
 /* BEM Blocks */
 .our-placeholder-block {
     background: #ccc;
@@ -11,9 +25,10 @@
     margin: 20px 0;
 }
 .site-header{
-    color: #f15025;
+    color: #fff;
     font-size: 32px;
-    background: linen;
+    background: #adadad;
+    text-align: center;
 }
 .site-footer{
     color: #fff;
@@ -24,4 +39,7 @@
     color: green;
     font-size: 32px;
     background: rgb(202, 202, 187);
+}
+footer{
+    margin-bottom: 40px;
 }

@@ -88,6 +88,3 @@ class JSXBlock {
     register_block_type("ourblocktheme/{$this->name}", $ourArgs);
   }
 }
-
-new JSXBlock('banner', true);
-
