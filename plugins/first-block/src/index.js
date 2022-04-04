@@ -1,5 +1,5 @@
-wp.blocks.registerBlockType("ourblocktheme/are-you-paying-attention", {
-  title: "Are You Paying Attention?",
+wp.blocks.registerBlockType("ourblocktheme/first-block", {
+  title: "First Block",
   icon:{
     "src":"admin-settings",
     "background": "#006400",
@@ -7,22 +7,22 @@ wp.blocks.registerBlockType("ourblocktheme/are-you-paying-attention", {
   },
   category: "text",
   attributes: {
-    skyColor: {type: "string"},
-    grassColor: {type: "string"}
+    valueOne: {type: "string"},
+    valueTwo: {type: "string"}
   },
   edit: function (props) {
-    function updateSkyColor(event) {
-      props.setAttributes({skyColor: event.target.value})
+    function updateValueOne(event) {
+      props.setAttributes({valueOne: event.target.value})
     }
 
-    function updateGrassColor(event) {
-      props.setAttributes({grassColor: event.target.value})
+    function updateValueTwo(event) {
+      props.setAttributes({valueTwo: event.target.value})
     }
 
     return (
       <div>
-        <input type="text" placeholder="sky color" value={props.attributes.skyColor} onChange={updateSkyColor} />
-        <input type="text" placeholder="grass color" value={props.attributes.grassColor} onChange={updateGrassColor} />
+        <input type="text" placeholder="value one..." value={props.attributes.valueOne} onChange={updateValueOne} />
+        <input type="text" placeholder="value two.." value={props.attributes.valueTwo} onChange={updateValueTwo} />
       </div>
     )
   },
