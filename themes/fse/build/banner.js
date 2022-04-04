@@ -98,29 +98,43 @@ wp.blocks.registerBlockType("ourblocktheme/banner", {
     "foreground": "#fff"
   },
   category: "text",
-  edit: EditComponent,
-  save: SaveComponent
+  attributes: {
+    valueOne: {
+      type: "string"
+    },
+    valueTwo: {
+      type: "string"
+    }
+  },
+  edit: function (props) {
+    function updateValueOne(event) {
+      props.setAttributes({
+        valueOne: event.target.value
+      });
+    }
+
+    function updateValueTwo(event) {
+      props.setAttributes({
+        valueTwo: event.target.value
+      });
+    }
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      placeholder: "Value 1",
+      value: props.attributes.value1,
+      onChange: updateValueOne
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+      type: "text",
+      placeholder: "Value 2",
+      value: props.attributes.value2,
+      onChange: updateValueTwo
+    }));
+  },
+  save: function (props) {
+    return null;
+  }
 });
-
-function EditComponent() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      background: 'linen',
-      height: '100px',
-      padding: '20px',
-      border: '2px solid black',
-      borderRadius: '20px'
-    }
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
-    style: {
-      color: 'red'
-    }
-  }, "EDITOR - This is from our block."));
-}
-
-function SaveComponent() {
-  return null;
-}
 }();
 /******/ })()
 ;
