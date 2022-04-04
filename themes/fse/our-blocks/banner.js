@@ -7,8 +7,8 @@ wp.blocks.registerBlockType("ourblocktheme/banner", {
   },
   category: "text",
   attributes: {
-    valueOne: {type: "string"},
-    valueTwo: {type: "string"}
+    valueOne: {type: "string", default: "cat"},
+    valueTwo: {type: "string", default: "red"}
   },
   edit: function (props) {
     function updateValueOne(event) {

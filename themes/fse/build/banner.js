@@ -100,10 +100,12 @@ wp.blocks.registerBlockType("ourblocktheme/banner", {
   category: "text",
   attributes: {
     valueOne: {
-      type: "string"
+      type: "string",
+      default: "cat"
     },
     valueTwo: {
-      type: "string"
+      type: "string",
+      default: "red"
     }
   },
   edit: function (props) {
