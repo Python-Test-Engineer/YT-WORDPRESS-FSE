@@ -40,8 +40,8 @@ class BannerBlock {
 
   function theHTML($attributes) {
     ob_start(); ?>
-    <p>Value1 <strong><?php echo esc_html($attributes['valueOne']) ?></strong> 
-    <br>Value2 <strong><?php echo esc_html($attributes['valueTwo']) ?></strong></p>
+    <p>ValueOne<strong><?php echo esc_html($attributes['valueOne']) ?></strong> 
+    <br>ValueTwo<strong><?php echo esc_html($attributes['valueTwo']) ?></strong></p>
     <?php return ob_get_clean();
   }
 }
