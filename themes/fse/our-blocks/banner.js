@@ -1,33 +1,71 @@
-wp.blocks.registerBlockType("ourblocktheme/banner", {
-    title: "Banner",
-    icon:{
-      "src":"smiley",
-      "background": "#2196f3",
-      "foreground": "#fff"
-    },
-    category: "text",
-    attributes: {
-      valueOne: {type: "string"},
-      valueTwo: {type: "string"}
-    },
-    edit: function (props) {
-      function updateValueOne(event) {
-        props.setAttributes({valueOne: event.target.value})
+import apiFetch from "@wordpress/api-fetch"
+import { Button, PanelBody, PanelRow } from "@wordpress/components"
+import { InnerBlocks, InspectorControls, MediaUpload, MediaUploadCheck } from "@wordpress/block-editor"
+import { registerBlockType } from "@wordpress/blocks"
+import { useEffect } from "@wordpress/element"
+
+registerBlockType("ourblocktheme/banner", {
+  title: "Banner",
+  supports: {
+    align: ["full"]
+  },
+  attributes: {
+    align: { type: "string", default: "full" },
+    imgID: { type: "number" },
+    imgURL: { type: "string", default: banner.fallbackimage }
+  },
+  edit: EditComponent,
+  save: SaveComponent
+})
+
+function EditComponent(props) {
+  useEffect(
+    function () {
+      if (props.attributes.imgID) {
+        async function go() {
+          const response = await apiFetch({
+            path: `/wp/v2/media/${props.attributes.imgID}`,
+            method: "GET"
+          })
+          props.setAttributes({ imgURL: response.media_details.sizes.pageBanner.source_url })
+        }
+        go()
       }
-  
-      function updateValueTwo(event) {
-        props.setAttributes({valueTwo: event.target.value})
-      }
-  
-      return (
-        <div>
-          <input type="text" placeholder="valueOne" value={props.attributes.valueOne} onChange={updateValueOne} />
-          <input type="text" placeholder="valueTwo" value={props.attributes.valueTwo} onChange={updateValueTwo} />
+    },
+    [props.attributes.imgID]
+  )
+
+  function onFileSelect(x) {
+    props.setAttributes({ imgID: x.id })
+  }
+
+  return (
+    <>
+      <InspectorControls>
+        <PanelBody title="Background" initialOpen={true}>
+          <PanelRow>
+            <MediaUploadCheck>
+              <MediaUpload
+                onSelect={onFileSelect}
+                value={props.attributes.imgID}
+                render={({ open }) => {
+                  return <Button onClick={open}>Choose Image</Button>
+                }}
+              />
+            </MediaUploadCheck>
+          </PanelRow>
+        </PanelBody>
+      </InspectorControls>
+      <div className="page-banner">
+        <div className="page-banner__bg-image" style={{ backgroundImage: `url('${props.attributes.imgURL}')` }}></div>
+        <div className="page-banner__content container t-center c-white">
+          <InnerBlocks allowedBlocks={["ourblocktheme/genericheading", "ourblocktheme/genericbutton"]} />
         </div>
-      )
-    },
-    save: function (props) {
-      return null
-    }
-  })
-  
+      </div>
+    </>
+  )
+}
+
+function SaveComponent() {
+  return <InnerBlocks.Content />
+}
