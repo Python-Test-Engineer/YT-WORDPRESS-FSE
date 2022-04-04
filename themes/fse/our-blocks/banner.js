@@ -21,8 +21,8 @@ wp.blocks.registerBlockType("ourblocktheme/banner", {
   
       return (
         <div>
-          <input type="text" placeholder="Value 1" value={props.attributes.valueOne} onChange={updateValueOne} />
-          <input type="text" placeholder="Value 2" value={props.attributes.valueTwo} onChange={updateValueTwo} />
+          <input type="text" placeholder="valueOne" value={props.attributes.valueOne} onChange={updateValueOne} />
+          <input type="text" placeholder="valueTwo" value={props.attributes.valueTwo} onChange={updateValueTwo} />
         </div>
       )
     },

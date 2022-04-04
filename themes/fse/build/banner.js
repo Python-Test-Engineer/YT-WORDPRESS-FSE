@@ -121,12 +121,12 @@ wp.blocks.registerBlockType("ourblocktheme/banner", {
 
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "text",
-      placeholder: "Value 1",
+      placeholder: "valueOne",
       value: props.attributes.valueOne,
       onChange: updateValueOne
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
       type: "text",
-      placeholder: "Value 2",
+      placeholder: "valueTwo",
       value: props.attributes.valueTwo,
       onChange: updateValueTwo
     }));
