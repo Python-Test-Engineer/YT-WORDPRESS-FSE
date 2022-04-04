@@ -5,6 +5,7 @@ wp.blocks.registerBlockType("ourblocktheme/footer", {
     "background": "#006400",
     "foreground": "#fff"
   },
+  category: "text",
   edit: function () {
     return wp.element.createElement("div", { className: "our-placeholder-block" }, "FSE Footer Placeholder")
   },
