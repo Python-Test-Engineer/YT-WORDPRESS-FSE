@@ -15,6 +15,6 @@ function EditComponent() {
 }
 
 function SaveComponent() {
-  return ( <div style={{background:'linen', padding:'20px', border: '2px solid black', borderRadius:'20px'  }}> <h1 style={{color:'green'}}>FRONTEND - This is from our block.</h1></div> )
+  return null
 }
  

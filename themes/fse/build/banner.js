@@ -119,18 +119,7 @@ function EditComponent() {
 }
 
 function SaveComponent() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      background: 'linen',
-      padding: '20px',
-      border: '2px solid black',
-      borderRadius: '20px'
-    }
-  }, " ", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
-    style: {
-      color: 'green'
-    }
-  }, "FRONTEND - This is from our block."));
+  return null;
 }
 }();
 /******/ })()

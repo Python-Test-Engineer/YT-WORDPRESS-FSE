@@ -25,11 +25,58 @@ function university_features() {
 add_action('after_setup_theme', 'university_features');
 
 
+function theHTML($block_attributes, $content){
+  return '<h2>RENDER CALLBACK</h2>';
+}
+
 function bannerBlock() {
   wp_register_script('bannerBlockScript', get_stylesheet_directory_uri() . '/build/banner.js', array('wp-blocks', 'wp-editor'));
   register_block_type("ourblocktheme/banner", array(
-    'editor_script' => 'bannerBlockScript'
+    'editor_script' => 'bannerBlockScript',
+    'render_callback' => 'theHTML'
   ));
 }
 
 add_action('init', 'bannerBlock');
+
+
+
+
+
+
+// class JSXBlock {
+//   function __construct($name, $renderCallback = null, $data = null) {
+//     $this->name = $name;
+//     $this->data = $data;
+//     $this->renderCallback = $renderCallback;
+//     add_action('init', [$this, 'onInit']);
+//   }
+
+//   function ourRenderCallback($attributes, $content) {
+//     ob_start();
+//     require get_theme_file_path("/our-blocks/{$this->name}.php");
+//     return ob_get_clean();
+//   }
+
+//   function onInit() {
+//     wp_register_script($this->name, get_stylesheet_directory_uri() . "/build/{$this->name}.js", array('wp-blocks', 'wp-editor'));
+    
+//     if ($this->data) {
+//       wp_localize_script($this->name, $this->name, $this->data);
+//     }
+
+//     $ourArgs = array(
+//       'editor_script' => $this->name
+//     );
+
+//     if ($this->renderCallback) {
+//       $ourArgs['render_callback'] = [$this, 'ourRenderCallback'];
+//     }
+
+//     register_block_type("ourblocktheme/{$this->name}", $ourArgs);
+//   }
+// }
+
+// new JSXBlock('banner', true, ['fallbackimage' => get_theme_file_uri('/images/library-hero.jpg')]);
+// new JSXBlock('genericheading');
+// new JSXBlock('genericbutton');

@@ -1,1 +1,1 @@
-{"version":3,"file":"./style-index.css","mappings":";;;AAAA;AAGA,+B","sources":["webpack://fse/./css/style.scss"],"sourcesContent":["/* 3rd party packages */\r\n\r\n\r\n/* SASS and Global'ish Stuff */\r\n@import \"base/variables\";\r\n"],"names":[],"sourceRoot":""}
+{"version":3,"file":"./style-index.css","mappings":";;;AAAA;AAGA;AAEA;EACI;AAFJ,C","sources":["webpack://fse/./css/style.scss"],"sourcesContent":["/* 3rd party packages */\r\n\r\n\r\n/* SASS and Global'ish Stuff */\r\n@import \"base/variables\";\r\nbody{\r\n    background: linen;\r\n}"],"names":[],"sourceRoot":""}
